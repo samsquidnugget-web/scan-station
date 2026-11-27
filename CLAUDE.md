@@ -79,7 +79,7 @@ and export. Processing times and measured-vs-caliper errors are recorded.
 | NVIDIA CUDA Toolkit | 13.0 | `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0` | Was already installed; neither COLMAP nor OpenMVS depends on it. |
 | Python packages | see `backend/requirements.txt` | `.venv\` (Python 3.12.3) | 27 Nov 2026: HEIC write+read, OpenCV blur score, trimesh OBJ/PLY/GLB export+reload all ran. |
 | Viewer packages | three 0.187.0, vite 8.4.0, typescript 7.0.2 | `viewer\node_modules\` | 27 Nov 2026: vite and tsc run; three loads in Node and builds geometry. 0 npm vulnerabilities. |
-| LocalSend | 1.19.0 (winget `LocalSend.LocalSend`, installer hash matched GitHub release) | `%LOCALAPPDATA%\Programs\LocalSend\localsend_app.exe` | 27 Nov 2026: app starts, listens on TCP/UDP 53317; Wi-Fi profile is Private; firewall inbound allow rule exists. Phone-to-laptop transfer not yet tested. |
+| LocalSend | 1.19.0 (winget `LocalSend.LocalSend`, installer hash matched GitHub release) | `%LOCALAPPDATA%\Programs\LocalSend\localsend_app.exe` | 27 Nov 2026: app starts, listens on TCP/UDP 53317; Wi-Fi profile is Private; firewall inbound allow rules (TCP + UDP) limited to **Private** networks only, at the owner's request. 27 Nov 2026: iPhone-to-laptop transfer worked (file lands in `Downloads`, arrived intact), but the test image was a 1122x1402 PNG with no EXIF, not an original camera photo. Original HEIC transfer still to be confirmed. |
 
 Notes on tools:
 - OpenMVS prints `--help` output to a `.log` file in the working folder,
