@@ -69,6 +69,15 @@ and export. Processing times and measured-vs-caliper errors are recorded.
 - 4 GB VRAM means dense depth maps must be downscaled (about 2,000-3,200 px on
   the long edge). Textures still use full-resolution photos.
 
+## Installed tools (verified on this laptop)
+
+| Tool | Version | Location | Verified |
+|---|---|---|---|
+| 7-Zip | 26.06 | `C:\Program Files\7-Zip\7z.exe` | runs (27 Nov 2026) |
+| COLMAP | 4.2.1, CUDA build (`colmap-x64-windows-cuda.zip`, SHA-256 matched GitHub) | `C:\Tools\COLMAP\bin\colmap.exe` | 27 Nov 2026: GPU SIFT extraction + GPU matching ran on two synthetic images (~3,060 features each, 2,819 verified matches). Not yet run on real photos. |
+
+Downloaded archives are kept in `C:\Tools\_downloads\` (outside the repo).
+
 ## Conventions
 
 - Third-party engines (COLMAP, OpenMVS) are unzipped into `C:\Tools\`, not
