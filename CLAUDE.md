@@ -75,6 +75,23 @@ and export. Processing times and measured-vs-caliper errors are recorded.
 |---|---|---|---|
 | 7-Zip | 26.06 | `C:\Program Files\7-Zip\7z.exe` | runs (27 Nov 2026) |
 | COLMAP | 4.2.1, CUDA build (`colmap-x64-windows-cuda.zip`, SHA-256 matched GitHub) | `C:\Tools\COLMAP\bin\colmap.exe` | 27 Nov 2026: GPU SIFT extraction + GPU matching ran on two synthetic images (~3,060 features each, 2,819 verified matches). Not yet run on real photos. |
+| OpenMVS | v2.4.0, CUDA build (`OpenMVS_Windows_x64_CUDA.7z`, SHA-256 matched GitHub) | `C:\Tools\OpenMVS\*.exe` | 27 Nov 2026: InterfaceCOLMAP, DensifyPointCloud, ReconstructMesh, RefineMesh, TextureMesh all start; all needed DLLs present; log shows "CUDA device 0 initialized: NVIDIA GeForce GTX 1650". Not yet run on a real scene. |
+| NVIDIA CUDA Toolkit | 13.0 | `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.0` | Was already installed; neither COLMAP nor OpenMVS depends on it. |
+| Python packages | see `backend/requirements.txt` | `.venv\` (Python 3.12.3) | 27 Nov 2026: HEIC write+read, OpenCV blur score, trimesh OBJ/PLY/GLB export+reload all ran. |
+| Viewer packages | three 0.187.0, vite 8.4.0, typescript 7.0.2 | `viewer\node_modules\` | 27 Nov 2026: vite and tsc run; three loads in Node and builds geometry. 0 npm vulnerabilities. |
+
+Notes on tools:
+- OpenMVS prints `--help` output to a `.log` file in the working folder,
+  not to the console, and exits with code 1 for `--help`. That is normal.
+- `RefineMesh` defaults to CPU (`--cuda-device -2`).
+- Not installed on purpose (yet): pymeshlab, open3d, usd-core, pycolmap.
+  Phase 1 lists them, but v0 doesn't need them. Add them when a feature needs
+  them.
+
+Recreate the Python environment:
+`py -3.12 -m venv .venv` then
+`.venv\Scripts\python.exe -m pip install -r backend\requirements.txt`.
+Recreate the viewer packages: `cd viewer` then `npm ci`.
 
 Downloaded archives are kept in `C:\Tools\_downloads\` (outside the repo).
 
