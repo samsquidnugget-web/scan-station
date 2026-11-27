@@ -24,6 +24,9 @@ Scans/
 *.dmap
 *.bin
 
+# Tool logs (OpenMVS writes *.log into its working folder)
+*.log
+
 # Secrets: never commit
 .env
 .env.*
