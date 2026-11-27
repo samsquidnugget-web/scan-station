@@ -1,0 +1,51 @@
+# --- Private / local-only files ---
+phase1.md.pdf
+*.pdf
+
+# Scan projects: photos carry GPS location; outputs are large
+Scans/
+
+# Photos and scan outputs anywhere in the repo
+*.heic
+*.HEIC
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.dng
+*.DNG
+*.ply
+*.obj
+*.mtl
+*.glb
+*.gltf
+*.mvs
+*.dmap
+*.bin
+
+# Secrets: never commit
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node / Vite
+node_modules/
+dist/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+
+# Claude Code local settings
+.claude/settings.local.json
