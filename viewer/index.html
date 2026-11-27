@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan Station</title>
+  </head>
+  <body>
+    <header>
+      <h1>Scan Station <span class="muted">v0</span></h1>
+      <span id="tools" class="muted"></span>
+    </header>
+    <main>
+      <aside>
+        <section>
+          <h2>New scan</h2>
+          <form id="new-form">
+            <label>Name <input name="name" required placeholder="e.g. mug" /></label>
+            <label>Photo folder <input name="folder" required /></label>
+            <button type="submit">Import photos</button>
+            <p id="new-msg" class="msg"></p>
+          </form>
+        </section>
+        <section>
+          <h2>Scans</h2>
+          <ul id="project-list"></ul>
+        </section>
+      </aside>
+      <div id="detail" class="empty">Import a folder of photos, or pick a scan.</div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

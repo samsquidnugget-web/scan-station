@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "scanstation",
+      "runtimeExecutable": "C:\\Claude Code Stuff\\ScanStation\\.venv\\Scripts\\python.exe",
+      "runtimeArgs": ["-m", "uvicorn", "scanstation.api:app", "--app-dir", "backend", "--host", "127.0.0.1", "--port", "8000"],
+      "port": 8000
+    }
+  ]
+}

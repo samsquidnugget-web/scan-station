@@ -102,6 +102,28 @@ Recreate the viewer packages: `cd viewer` then `npm ci`.
 
 Downloaded archives are kept in `C:\Tools\_downloads\` (outside the repo).
 
+## Code layout and how to run (v0)
+
+- `backend/scanstation/`: FastAPI app (`api.py`), project folders
+  (`projects.py`), HEIC conversion + blur/exposure checks (`photos.py`), job
+  runner and COLMAP/OpenMVS stages (`pipeline.py`), paths (`config.py`).
+- `viewer/`: Vite + TypeScript + Three.js page (`src/main.ts` UI,
+  `src/viewer3d.ts` 3D view). The backend serves the built `viewer/dist`.
+- Start: `.\run.ps1` then open http://127.0.0.1:8000 (backend binds to
+  127.0.0.1 only). For Claude: `.claude/launch.json` config `scanstation`.
+- Pipeline: photo check (HEIC→upright landscape JPEG, EXIF kept, GPS
+  dropped) → COLMAP feature_extractor / exhaustive_matcher / mapper /
+  image_undistorter → OpenMVS InterfaceCOLMAP / DensifyPointCloud /
+  ReconstructMesh / RefineMesh / TextureMesh (OBJ) → trimesh writes GLB and
+  vertex-coloured PLY. Presets `draft` and `quality` are in `pipeline.py`.
+
+### Verified so far (27 Nov 2026)
+- Import + photo check + thumbnails work in the browser (3-photo test).
+- COLMAP reads the focal length from the converted JPEG's EXIF ("Prior").
+- A run that can't be solved stops at "Solve cameras" with a plain message.
+- **Not yet verified:** a full run on a real object (densify → texture →
+  export), the 3D view and the downloads.
+
 ## Conventions
 
 - Third-party engines (COLMAP, OpenMVS) are unzipped into `C:\Tools\`, not
