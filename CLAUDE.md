@@ -44,6 +44,12 @@ Phase 2 decisions (27 Nov 2026):
 - Meshroom is **skipped** for v0.
 - Photos move from iPhone to laptop with **LocalSend** over Wi-Fi.
 - `phase1.md.pdf` is kept **out** of the repo.
+- **The phone is an iPhone 15 Pro Max** (confirmed by the owner and by photo
+  EXIF). Phase 1 said iPhone 16 Pro Max; that was wrong. The 15 Pro Max also
+  has LiDAR and an A17 Pro chip, so it meets every Phase 1 requirement.
+- **Capture at 1x** (main camera, 24 mm equivalent) and move closer instead
+  of zooming. Zoomed shots are cropped to 12 MP and make the camera lens
+  harder for COLMAP to calibrate.
 
 ## Phase 2 goal: "Scan Station v0"
 
